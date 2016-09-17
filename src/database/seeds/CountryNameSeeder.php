@@ -24,16 +24,16 @@ class CountryNameSeeder extends Seeder
     {
         // TODO: Timezone support
         // TODO: Calling code support.
-        // TODO: Capital support.
         // TODO: Add currency
 
         // Truncate all the database tables.
         // -------------------------------------------------------------------------------------
         Schema::disableForeignKeyConstraints();
-        $db = new DB();
         DB::table('countries')->delete();
         DB::table('country_top_level_domains')->delete();
         DB::table('top_level_domains')->delete();
+        DB::table('country_currency')->delete();
+        DB::table('currencies')->delete();
         Schema::enableForeignKeyConstraints();
 
         // The api call for data.
