@@ -22,7 +22,8 @@ class CountryNameSeeder extends Seeder
 
         foreach(json_decode($res->getBody()) as $country) {
             Country::create([
-                'name' => $country->name
+                'name' => $country->name,
+                'tld'  => $country->topLevelDomain,
             ]);
         }
     }
