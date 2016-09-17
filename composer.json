@@ -13,7 +13,8 @@
     "require": {
         "illuminate/support": "5.1.*|5.2.*|5.3.*",
         "illuminate/console": "5.1.*|5.2.*|5.3.*",
-        "illuminate/database": "5.1.*|5.2.*|5.3.*"
+        "illuminate/database": "5.1.*|5.2.*|5.3.*",
+        "guzzlehttp/guzzle": "^6.2"
     },
     "autoload": {
         "psr-4": {
