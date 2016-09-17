@@ -15,7 +15,7 @@ class CountryNameSeeder extends Seeder
     public function run()
     {
         $client = new \GuzzleHttp\Client();
-        $res = $client->request('GET', 'https://api.github.com/user');
+        $res = $client->request('GET', 'https://restcountries.eu/rest/v1/all');
 
         dd($res->getBody());
     }
