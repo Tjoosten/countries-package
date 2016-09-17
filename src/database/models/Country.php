@@ -32,7 +32,8 @@ class Country extends Model
      */
     public function tld()
     {
-        return $this->belongsToMany('Tjoosten\Countries\Database\Models\TopLevelDomains');
+        return $this->belongsToMany('Tjoosten\Countries\Database\Models\TopLevelDomains')
+            ->withTimestamps();
     }
 
     /**
@@ -42,7 +43,8 @@ class Country extends Model
      */
     public function currency()
     {
-        return $this->belongsToMany('Tjoosten\Countries\Database\Models\Currency');
+        return $this->belongsToMany('Tjoosten\Countries\Database\Models\Currency')
+            ->withTimestamps();
     }
 
     /**
@@ -52,6 +54,18 @@ class Country extends Model
      */
     public function timezone()
     {
-        return $this->belongsToMany('Tjoosten\Countries\Database\Models\Timezone');
+        return $this->belongsToMany('Tjoosten\Countries\Database\Models\Timezone')
+            ->withTimestamps();
+    }
+
+    /**
+     * Get the calling codes for a specific country.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function callingCode()
+    {
+        return $this->belongsToMany('Tjoosten\Countries\Database\Models\CallingCode')
+            ->withTimestamps();
     }
 }

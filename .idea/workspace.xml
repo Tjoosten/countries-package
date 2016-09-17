@@ -48,7 +48,7 @@
       <file leaf-file-name="CountryNameSeeder.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/database/seeds/CountryNameSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
+            <state relative-caret-position="-595">
               <caret line="40" column="29" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="32" />
               <folding>
                 <element signature="e#53#84#0#PHP" expanded="true" />
@@ -57,7 +57,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2016_09_17_204843_CreateCallingCodeTable.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2016_09_17_204843_CreateCallingCodeTable.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/database/migrations/2016_09_17_204843_CreateCallingCodeTable.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
@@ -87,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Country.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Country.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/database/models/Country.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="884">
-              <caret line="52" column="28" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
+            <state relative-caret-position="468">
+              <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -144,11 +144,11 @@
         <option value="$PROJECT_DIR$/src/database/migrations/timezones.php" />
         <option value="$PROJECT_DIR$/src/database/migrations/2016_09_17_033738_CountryTable.php" />
         <option value="$PROJECT_DIR$/src/database/migrations/2016_09_17_174814_CreateCurrencyData.php" />
-        <option value="$PROJECT_DIR$/src/database/models/Country.php" />
         <option value="$PROJECT_DIR$/src/database/migrations/2016_09_17_192652_CreateTimezoneTable.php" />
         <option value="$PROJECT_DIR$/src/database/models/CallingCode.php" />
         <option value="$PROJECT_DIR$/src/database/seeds/CountryNameSeeder.php" />
         <option value="$PROJECT_DIR$/src/database/migrations/2016_09_17_204843_CreateCallingCodeTable.php" />
+        <option value="$PROJECT_DIR$/src/database/models/Country.php" />
       </list>
     </option>
   </component>
@@ -352,12 +352,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1474082210572</updated>
-      <workItem from="1474082212246" duration="20846000" />
+      <workItem from="1474082212246" duration="20980000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20846000" />
+    <option name="totallyTimeSpent" value="20980000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1924" height="1047" extended-state="0" />
@@ -462,14 +462,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/models/Country.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="28" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/database/models/CallingCode.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -494,9 +486,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/migrations/2016_09_17_204843_CreateCallingCodeTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/database/seeds/CountryNameSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="-595">
           <caret line="40" column="29" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="32" />
           <folding>
             <element signature="e#53#84#0#PHP" expanded="true" />
@@ -504,10 +504,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/migrations/2016_09_17_204843_CreateCallingCodeTable.php">
+    <entry file="file://$PROJECT_DIR$/src/database/models/Country.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        <state relative-caret-position="468">
+          <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
           <folding />
         </state>
       </provider>
