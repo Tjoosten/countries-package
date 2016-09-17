@@ -23,7 +23,7 @@ class CountryNameSeeder extends Seeder
         foreach(json_decode($res->getBody()) as $country) {
             Country::create([
                 'name' => $country->name,
-                'tld'  => (string) $country->topLevelDomain,
+                'tld'  => (string) $country->topLevelDomain->toArray(),
             ]);
         }
     }
