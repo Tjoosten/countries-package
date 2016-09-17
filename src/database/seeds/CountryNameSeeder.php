@@ -96,16 +96,18 @@ class CountryNameSeeder extends Seeder
             }
 
             // Timezone support
-            foreach ($country->timezones as $timezone) {
-                $statement = Timezone::where('name', $timezone);
+            if (! empty($country->timezones)) {
+                foreach ($country->timezones as $timezone) {
+                    $statement = Timezone::where('name', $timezone);
 
-                if ($statement->count() === 0) {
-                    $timezoneInsert = Timezone::create(['name' => $timezone]);
-                    Country::find($countryInsert->id)->timezone()->attach($timezoneInsert->id);
-                } else {
-                    $zoneData = $statement->get();
-                    foreach ($zoneData as $timeData) {
-                        Country::find($countryInsert->id)->timezone()->attach($timeData->id);
+                    if ($statement->count() === 0) {
+                        $timezoneInsert = Timezone::create(['name' => $timezone]);
+                        Country::find($countryInsert->id)->timezone()->attach($timezoneInsert->id);
+                    } else {
+                        $zoneData = $statement->get();
+                        foreach ($zoneData as $timeData) {
+                            Country::find($countryInsert->id)->timezone()->attach($timeData->id);
+                        }
                     }
                 }
             }

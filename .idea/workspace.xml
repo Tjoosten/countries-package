@@ -35,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CountryNameSeeder.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CountryNameSeeder.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/database/seeds/CountryNameSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="41" column="52" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
+            <state relative-caret-position="77">
+              <caret line="96" column="12" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="12" />
               <folding>
                 <element signature="e#53#84#0#PHP" expanded="true" />
               </folding>
@@ -80,14 +80,14 @@
       <file leaf-file-name="Country.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/database/models/Country.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
+            <state relative-caret-position="-705">
               <caret line="2" column="44" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Timezone.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Timezone.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/database/models/Timezone.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="519">
@@ -144,11 +144,11 @@
         <option value="$PROJECT_DIR$/src/database/migrations/2016_09_17_192652_CreateTimezoneTable.php" />
         <option value="$PROJECT_DIR$/src/database/models/Country.php" />
         <option value="$PROJECT_DIR$/src/database/migrations/2016_09_17_204843_CreateCallingCodeTable.php" />
-        <option value="$PROJECT_DIR$/src/database/seeds/CountryNameSeeder.php" />
         <option value="$PROJECT_DIR$/src/database/models/CallingCode.php" />
         <option value="$PROJECT_DIR$/src/database/models/Currency.php" />
         <option value="$PROJECT_DIR$/src/database/models/TopLevelDomains.php" />
         <option value="$PROJECT_DIR$/src/database/models/Timezone.php" />
+        <option value="$PROJECT_DIR$/src/database/seeds/CountryNameSeeder.php" />
       </list>
     </option>
   </component>
@@ -352,12 +352,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1474082210572</updated>
-      <workItem from="1474082212246" duration="21576000" />
+      <workItem from="1474082212246" duration="21761000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21576000" />
+    <option name="totallyTimeSpent" value="21761000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1924" height="1047" extended-state="0" />
@@ -454,28 +454,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/seeds/CountryNameSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="41" column="52" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
-          <folding>
-            <element signature="e#53#84#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CountryServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/models/Country.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="44" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -496,6 +478,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/models/Timezone.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/database/models/Currency.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="519">
@@ -504,11 +494,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/models/Timezone.php">
+    <entry file="file://$PROJECT_DIR$/src/database/models/Country.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+        <state relative-caret-position="-705">
+          <caret line="2" column="44" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="44" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/seeds/CountryNameSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="96" column="12" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="12" />
+          <folding>
+            <element signature="e#53#84#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
