@@ -5,6 +5,7 @@ namespace Tjoosten\Countries\Database\Seeds;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Tjoosten\Countries\Database\Models\CallingCode;
 use Tjoosten\Countries\Database\Models\Country;
 use Tjoosten\Countries\Database\Models\Currency;
 use Tjoosten\Countries\Database\Models\Timezone;
@@ -25,7 +26,9 @@ class CountryNameSeeder extends Seeder
     {
         // TODO: Calling code support.
 
-        // Truncate all the database tables.
+        // Truncate all the data
+        //
+        //base tables.
         // -------------------------------------------------------------------------------------
         Schema::disableForeignKeyConstraints();
         DB::table('countries')->delete();
@@ -35,6 +38,7 @@ class CountryNameSeeder extends Seeder
         DB::table('currencies')->delete();
         DB::table('timezones')->delete();
         DB::table('country_timezone')->delete();
+        DB::table('calling_codes')->delete();
         Schema::enableForeignKeyConstraints();
 
         // The api call for data.
@@ -69,6 +73,23 @@ class CountryNameSeeder extends Seeder
                     $tldData = $statement->get();
                     foreach ($tldData as $data) {
                         Country::find($countryInsert->id)->tld()->attach($data->id);
+                    }
+                }
+            }
+
+            // Calling codes support
+            if (! empty($country->callingCodes)) {
+                foreach ($country->callingCodes as $code) {
+                    $statement = CallingCode::where('code', $code);
+
+                    if ($statement->count() === 0) {
+                        $codeInsert = CallingCode::create(['code' => $code]);
+                        Country::find($countryInsert->id)->callingCode()->attach($codeInsert->id);
+                    } else {
+                        $codeData = $statement->get();
+                        foreach ($codeData as $codeFound) {
+                            Country::find($countryInsert->id)->callingCode()->attach($codeFound->id);
+                        }
                     }
                 }
             }
