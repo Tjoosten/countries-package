@@ -1,0 +1,22 @@
+{
+    "name": "tjoosten/countries",
+    "description": "Country package for laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tim Joosten",
+            "email": "Tjoosten3@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/support": "5.1.*|5.2.*|5.3.*",
+        "illuminate/console": "5.1.*|5.2.*|5.3.*",
+    },
+    "autoload": {
+        "psr-4": {
+            "Tjoosten\\Countries\\": "src/"
+        }
+    }
+}
