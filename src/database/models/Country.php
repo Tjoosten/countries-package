@@ -34,4 +34,9 @@ class Country extends Model
     {
         return $this->belongsToMany('Tjoosten\Countries\Database\Models\TopLevelDomains');
     }
+
+    public function currency()
+    {
+        return $this->belongsToMany('Tjoosten\Countries\Database\Models\Currency');
+    }
 }

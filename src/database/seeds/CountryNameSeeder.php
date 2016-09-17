@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Tjoosten\Countries\Database\Models\Country;
+use Tjoosten\Countries\Database\Models\Currency;
 use Tjoosten\Countries\Database\Models\TopLevelDomains;
 
 /**
@@ -46,17 +47,18 @@ class CountryNameSeeder extends Seeder
 
         // Start with the data insert
         // -------------------------------------------------------------------------------------
-        foreach($apiCall as $country) {
+        foreach ($apiCall as $country) {
 
             // Country insert
             $countryInsert = Country::create([
                 'name'       => $country->name,
-                'alpha2code' => $country->alpha2code,
-                'alpha3code' => $country->alpha3code
+                'capital'    => $country->capital,
+                'alpha2code' => $country->alpha2Code,
+                'alpha3code' => $country->alpha3Code
             ]);
 
             // TLD Insert
-            foreach($country->topLevelDomain as $tld) {
+            foreach ($country->topLevelDomain as $tld) {
                 $statement = TopLevelDomains::where('tld', $tld);
 
                 if ($statement->count() === 0) {
@@ -64,8 +66,23 @@ class CountryNameSeeder extends Seeder
                     Country::find($countryInsert->id)->tld()->attach($tldInsert->id);
                 } else {
                     $tldData = $statement->get();
-                    foreach($tldData as $data) {
+                    foreach ($tldData as $data) {
                         Country::find($countryInsert->id)->tld()->attach($data->id);
+                    }
+                }
+            }
+
+            // Currency support.
+            foreach ($country->currencies as $currency) {
+                $statement = Currency::where('name', $currency);
+
+                if ($statement->count() === 0) {
+                    $currencyInsert = Currency::create(['name' => $currency]);
+                    Country::find($countryInsert->id)->currency()->attach($currencyInsert->id);
+                } else {
+                    $currencyData = $statement->get();
+                    foreach ($currencyData as $CurrData) {
+                        Country::find($countryInsert->id)->currency()->attach($CurrData->id);
                     }
                 }
             }
