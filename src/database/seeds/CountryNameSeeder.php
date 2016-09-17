@@ -24,16 +24,15 @@ class CountryNameSeeder extends Seeder
         // TODO: Timezone support
         // TODO: Calling code support.
         // TODO: Capital support.
-        // TODO: code ISO 3166-1 alpha-2 support
-        // TODO: code ISO 3166-1 alpha-3 support
+        // TODO: Add currency
 
         // Truncate all the database tables.
         // -------------------------------------------------------------------------------------
         Schema::disableForeignKeyConstraints();
         $db = new DB();
-        $db->table('countries')->delete();
-        $db->table('country_top_level_domains')->delete();
-        $db->table('top_level_domains')->delete();
+        DB::table('countries')->delete();
+        DB::table('country_top_level_domains')->delete();
+        DB::table('top_level_domains')->delete();
         Schema::enableForeignKeyConstraints();
 
         // The api call for data.
@@ -51,7 +50,9 @@ class CountryNameSeeder extends Seeder
 
             // Country insert
             $countryInsert = Country::create([
-                'name' => $country->name,
+                'name'       => $country->name,
+                'alpha2code' => $country->alpha2code,
+                'alpha3code' => $country->alpha3code
             ]);
 
             // TLD Insert
@@ -63,8 +64,9 @@ class CountryNameSeeder extends Seeder
                     Country::find($countryInsert->id)->tld()->attach($tldInsert->id);
                 } else {
                     $tldData = $statement->get();
-                    Country::find($countryInsert->id)->tld()->attach($tldData->id);
-
+                    foreach($tldData as $data) {
+                        Country::find($countryInsert->id)->tld()->attach($data->id);
+                    }
                 }
             }
         }
