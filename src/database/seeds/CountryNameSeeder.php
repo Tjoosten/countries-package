@@ -4,6 +4,7 @@ namespace Tjoosten\Countries\Database\Seeds;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Tjoosten\Countries\Database\Models\Country;
 
 class CountryNameSeeder extends Seeder
 {
@@ -17,6 +18,12 @@ class CountryNameSeeder extends Seeder
         $client = new \GuzzleHttp\Client();
         $res = $client->request('GET', 'https://restcountries.eu/rest/v1/all');
 
-        dd(\GuzzleHttp\json_decode($res->getBody()));
+        // dd(\GuzzleHttp\json_decode($res->getBody()));
+
+        foreach(json_decode($res->getBody()) as $country) {
+            Country::create([
+                'name' => $country->name
+            ]);
+        }
     }
 }
