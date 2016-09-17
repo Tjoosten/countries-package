@@ -12,7 +12,7 @@
     "minimum-stability": "dev",
     "require": {
         "illuminate/support": "5.1.*|5.2.*|5.3.*",
-        "illuminate/console": "5.1.*|5.2.*|5.3.*",
+        "illuminate/console": "5.1.*|5.2.*|5.3.*"
     },
     "autoload": {
         "psr-4": {
