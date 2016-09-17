@@ -19,12 +19,15 @@ class CreateTopLevelDomainsTable extends Migration
             $table->timestamps();
         });
 
-        // SQLSTATE[42S02]: Base table or view not found: 1146
-        // Table 'root.country_top_level_domains' doesn't exist
-        // (SQL: insert into `country_top_level_domains` (`country_id`, `top_level_domains_id`) values (251, 1))
+        Schema::create('country_top_level_domains', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('country_id')->unsigned()->index();
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
 
-        // $table->foreign('author_id')->references('id')->on('authors');
-        // $table->foreign('book_id')->references('id')->on('books');
+            $table->integer('top_level_domains_id')->unsigned()->index();
+            $table->foreign('top_level_domains_id')->references('id')->on('top_level_domains')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -34,6 +37,9 @@ class CreateTopLevelDomainsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('country_top_level_domains');
         Schema::dropIfExists('top_level_domains');
+        Schema::enableForeignKeyConstraints();
     }
 }

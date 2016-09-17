@@ -4,6 +4,7 @@ namespace Tjoosten\Countries\Database\Seeds;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Tjoosten\Countries\Database\Models\Country;
 use Tjoosten\Countries\Database\Models\TopLevelDomains;
 
@@ -28,8 +29,12 @@ class CountryNameSeeder extends Seeder
 
         // Truncate all the database tables.
         // -------------------------------------------------------------------------------------
+        Schema::disableForeignKeyConstraints();
         $db = new DB();
         $db->table('countries')->delete();
+        $db->table('country_top_level_domains')->delete();
+        $db->table('top_level_domains')->delete();
+        Schema::enableForeignKeyConstraints();
 
         // The api call for data.
         // -------------------------------------------------------------------------------------
