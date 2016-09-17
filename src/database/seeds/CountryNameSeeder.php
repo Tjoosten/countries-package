@@ -23,7 +23,6 @@ class CountryNameSeeder extends Seeder
      */
     public function run()
     {
-        // TODO: Timezone support
         // TODO: Calling code support.
 
         // Truncate all the database tables.
@@ -35,6 +34,7 @@ class CountryNameSeeder extends Seeder
         DB::table('country_currency')->delete();
         DB::table('currencies')->delete();
         DB::table('timezones')->delete();
+        DB::table('country_timezone')->delete();
         Schema::enableForeignKeyConstraints();
 
         // The api call for data.

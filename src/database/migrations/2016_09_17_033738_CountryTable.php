@@ -30,6 +30,8 @@ class CountryTable extends Migration
      */
     public function down()
     {
-        Schema::drop('countries'); 
+        Schema::disableForeignKeyConstraints();
+        Schema::drop('countries');
+        Schema::enableForeignKeyConstraints();
     }
 }

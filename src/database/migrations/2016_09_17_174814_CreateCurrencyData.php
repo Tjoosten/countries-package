@@ -38,7 +38,7 @@ class CreateCurrencyData extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('country_curency');
+        Schema::dropIfExists('country_currency');
         Schema::dropIfExists('currencies');
         Schema::enableForeignKeyConstraints();
     }

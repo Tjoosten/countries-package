@@ -50,7 +50,7 @@ class Country extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function timezones()
+    public function timezone()
     {
         return $this->belongsToMany('Tjoosten\Countries\Database\Models\Timezone');
     }

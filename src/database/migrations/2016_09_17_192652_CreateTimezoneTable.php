@@ -18,6 +18,16 @@ class CreateTimezoneTable extends Migration
             $table->string('name')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('country_timezone', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('country_id')->unsigned()->index();
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+
+            $table->integer('timezone_id')->unsigned()->index();
+            $table->foreign('timezone_id')->references('id')->on('timezones')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -29,6 +39,7 @@ class CreateTimezoneTable extends Migration
     {
         Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('timezones');
+        Schema::dropIfExists('country_timezone');
         Schema::enableForeignKeyConstraints();
     }
 }
