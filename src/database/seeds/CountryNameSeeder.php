@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Tjoosten\Countries\Database\Models\Country;
 use Tjoosten\Countries\Database\Models\Currency;
+use Tjoosten\Countries\Database\Models\Timezone;
 use Tjoosten\Countries\Database\Models\TopLevelDomains;
 
 /**
@@ -24,7 +25,6 @@ class CountryNameSeeder extends Seeder
     {
         // TODO: Timezone support
         // TODO: Calling code support.
-        // TODO: Add currency
 
         // Truncate all the database tables.
         // -------------------------------------------------------------------------------------
@@ -34,6 +34,7 @@ class CountryNameSeeder extends Seeder
         DB::table('top_level_domains')->delete();
         DB::table('country_currency')->delete();
         DB::table('currencies')->delete();
+        DB::table('timezones')->delete();
         Schema::enableForeignKeyConstraints();
 
         // The api call for data.
@@ -68,6 +69,21 @@ class CountryNameSeeder extends Seeder
                     $tldData = $statement->get();
                     foreach ($tldData as $data) {
                         Country::find($countryInsert->id)->tld()->attach($data->id);
+                    }
+                }
+            }
+
+            // Timezone support
+            foreach ($country->timezones as $timezone) {
+                $statement = Timezone::where('name', $timezone);
+
+                if ($statement->count() === 0) {
+                    $timezoneInsert = Timezone::create(['name' => $timezone]);
+                    Country::find($countryInsert->id)->timezone()->attach($timezoneInsert->id);
+                } else {
+                    $zoneData = $statement->get();
+                    foreach ($zoneData as $timeData) {
+                        Country::find($countryInsert->id)->timezone()->attach($timeData->id);
                     }
                 }
             }

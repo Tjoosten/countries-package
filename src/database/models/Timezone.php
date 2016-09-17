@@ -5,17 +5,17 @@ namespace Tjoosten\Countries\Database\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Currency
+ * Class Timezone
  * @package Tjoosten\Countries\Database\Models
  */
-class Currency extends Model
+class Timezone extends Model
 {
     /**
      * Declare the table
      *
      * @var array
      */
-    protected $table = 'currencies';
+    protected $table = 'timezones';
 
     /**
      * Mass-assign fields

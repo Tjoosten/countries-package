@@ -44,4 +44,14 @@ class Country extends Model
     {
         return $this->belongsToMany('Tjoosten\Countries\Database\Models\Currency');
     }
+
+    /**
+     * Get the timezone properties for a country.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function timezones()
+    {
+        return $this->belongsToMany('Tjoosten\Countries\Database\Models\Timezone');
+    }
 }
