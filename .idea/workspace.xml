@@ -48,8 +48,8 @@
       <file leaf-file-name="2016_09_17_033738_CountryTable.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/database/migrations/2016_09_17_033738_CountryTable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+            <state relative-caret-position="255">
+              <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -303,12 +303,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1474082210572</updated>
-      <workItem from="1474082212246" duration="3972000" />
+      <workItem from="1474082212246" duration="4106000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3972000" />
+    <option name="totallyTimeSpent" value="4106000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1924" height="1056" extended-state="0" />
@@ -393,8 +393,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/database/migrations/2016_09_17_033738_CountryTable.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+        <state relative-caret-position="255">
+          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
           <folding />
         </state>
       </provider>
