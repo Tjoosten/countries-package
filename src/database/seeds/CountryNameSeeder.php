@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\DB;
 use Tjoosten\Countries\Database\Models\Country;
 use Tjoosten\Countries\Database\Models\TopLevelDomains;
 
+/**
+ * Class CountryNameSeeder
+ * @package Tjoosten\Countries\Database\Seeds
+ */
 class CountryNameSeeder extends Seeder
 {
     /**
@@ -16,12 +20,28 @@ class CountryNameSeeder extends Seeder
      */
     public function run()
     {
+        // TODO: Timezone support
+        // TODO: Calling code support.
+        // TODO: Capital support.
+        // TODO: code ISO 3166-1 alpha-2 support
+        // TODO: code ISO 3166-1 alpha-3 support
+
+        // Truncate all the database tables.
+        // -------------------------------------------------------------------------------------
+        $db = new DB();
+        $db->table('countries')->delete();
+
+        // The api call for data.
+        // -------------------------------------------------------------------------------------
         $client = new \GuzzleHttp\Client();
         $res = $client->request('GET', 'https://restcountries.eu/rest/v1/all');
         $apiCall = json_decode($res->getBody());
 
         // dd(\GuzzleHttp\json_decode($res->getBody()));
 
+
+        // Start with the data insert
+        // -------------------------------------------------------------------------------------
         foreach($apiCall as $country) {
 
             // Country insert
@@ -31,9 +51,15 @@ class CountryNameSeeder extends Seeder
 
             // TLD Insert
             foreach($country->topLevelDomain as $tld) {
-                if (TopLevelDomains::where('tld', $tld)->count() > 0) {
+                $statement = TopLevelDomains::where('tld', $tld);
+
+                if ($statement->count() === 0) {
                     $tldInsert = TopLevelDomains::create(['tld' => $tld]);
                     Country::find($countryInsert->id)->tld()->attach($tldInsert->id);
+                } else {
+                    $tldData = $statement->get();
+                    Country::find($countryInsert->id)->tld()->attach($tldData->id);
+
                 }
             }
         }

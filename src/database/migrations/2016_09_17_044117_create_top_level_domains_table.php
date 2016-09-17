@@ -18,6 +18,13 @@ class CreateTopLevelDomainsTable extends Migration
             $table->string('tld');
             $table->timestamps();
         });
+
+        // SQLSTATE[42S02]: Base table or view not found: 1146
+        // Table 'root.country_top_level_domains' doesn't exist
+        // (SQL: insert into `country_top_level_domains` (`country_id`, `top_level_domains_id`) values (251, 1))
+
+        // $table->foreign('author_id')->references('id')->on('authors');
+        // $table->foreign('book_id')->references('id')->on('books');
     }
 
     /**
