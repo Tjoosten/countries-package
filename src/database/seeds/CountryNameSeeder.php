@@ -17,6 +17,6 @@ class CountryNameSeeder extends Seeder
         $client = new \GuzzleHttp\Client();
         $res = $client->request('GET', 'https://restcountries.eu/rest/v1/all');
 
-        dd($res->getBody());
+        dd(\GuzzleHttp\json_decode($res->getBody()));
     }
 }
