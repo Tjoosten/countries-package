@@ -5,6 +5,7 @@ namespace Tjoosten\Countries\Database\Seeds;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Tjoosten\Countries\Database\Models\Country;
+use Tjoosten\Countries\Database\Models\TopLevelDomains;
 
 class CountryNameSeeder extends Seeder
 {
@@ -17,14 +18,22 @@ class CountryNameSeeder extends Seeder
     {
         $client = new \GuzzleHttp\Client();
         $res = $client->request('GET', 'https://restcountries.eu/rest/v1/all');
+        $apiCall = json_decode($res->getBody());
 
         // dd(\GuzzleHttp\json_decode($res->getBody()));
 
-        foreach(json_decode($res->getBody()) as $country) {
-            Country::create([
+        foreach($apiCall as $country) {
+
+            // Country insert
+            $countryInsert = Country::create([
                 'name' => $country->name,
-                'tld'  => (string) $country->topLevelDomain->toArray(),
             ]);
+
+            // TLD Insert
+            foreach($country->topLevelDomain as $tld) {
+                $tldInsert = TopLevelDomains::create(['tld' => $tld]);
+                Country::find($countryInsert->id)->tld()->attach($tldInsert->id);
+            }
         }
     }
 }

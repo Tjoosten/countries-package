@@ -11,9 +11,27 @@ use Illuminate\Database\Eloquent\Model;
 class Country extends Model
 {
     /**
+     * Table name assigment
+     *
+     * @var string
+     */
+    protected $table = 'countries';
+
+    /**
      * Mass-assign fields. 
      *
      * @var array 
      */ 
     protected $fillable = ['name', 'tld'];
+
+
+    /**
+     * Get the tld properties for a country with this relation.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tld()
+    {
+        return $this->belongsToMany('Tjoosten\Countries\Database\Models\TopLevelDomains');
+    }
 }
