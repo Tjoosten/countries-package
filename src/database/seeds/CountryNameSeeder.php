@@ -31,8 +31,10 @@ class CountryNameSeeder extends Seeder
 
             // TLD Insert
             foreach($country->topLevelDomain as $tld) {
-                $tldInsert = TopLevelDomains::create(['tld' => $tld]);
-                Country::find($countryInsert->id)->tld()->attach($tldInsert->id);
+                if (TopLevelDomains::where('tld', $tld)->count() > 0) {
+                    $tldInsert = TopLevelDomains::create(['tld' => $tld]);
+                    Country::find($countryInsert->id)->tld()->attach($tldInsert->id);
+                }
             }
         }
     }
