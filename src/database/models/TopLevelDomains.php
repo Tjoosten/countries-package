@@ -16,4 +16,15 @@ class TopLevelDomains extends Model
      * @var array
      */
     protected $fillable = ['tld'];
+
+    /**
+     * Define the country.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function country()
+    {
+        return $this->belongsToMany('Tjoosten\Countries\Database\Models\Country')
+            ->withTimestamps();
+    }
 }
