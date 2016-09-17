@@ -39,6 +39,7 @@ class CountryNameSeeder extends Seeder
         DB::table('timezones')->delete();
         DB::table('country_timezone')->delete();
         DB::table('calling_codes')->delete();
+        DB::table('calling_code_country')->delete();
         Schema::enableForeignKeyConstraints();
 
         // The api call for data.
